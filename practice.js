@@ -28,6 +28,9 @@
 */
 
 // Code Here 
+function first(arr,cb){
+cb(arr[0]);
+}
 
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -49,6 +52,11 @@ first(names, function(firstName){
 
 //Code Here
 
+function last(arr,cb){
+var last = arr[arr.length -1];
+cb(last);
+}
+
 // Do not edit the code below.
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -66,6 +74,10 @@ last(names, function(lastName){
 */
 
 //Code Here
+
+function multiply(num1,num2,cb){
+  cb(num1*num2);
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -85,6 +97,16 @@ multiply(4, 3, function(answer){
 */
 
 //Code Here 
+
+function contains(arr,name,cb){
+if(arr.includes(name)){
+  cb(true);
+}
+else{
+  cb(false);
+}
+
+}
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -107,6 +129,17 @@ contains(names, 'Colt', function(result){
 
 //Code Here
 
+function uniq(arr,cb){
+
+  var newArr = arr.filter(function(value, index,self){
+    return self.indexOf(value) === index;
+  });
+ return cb(newArr);
+
+}
+
+
+
 // Do not edit the code below.
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -124,6 +157,12 @@ uniq(names, function(uniqArr){
 
 //Code Here 
 
+function each(arr,cb){
+  for(i=0;i<arr.length;i++){
+    cb(arr[i] ,i);
+  }
+}
+
 // Do not edit the code below.
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -139,7 +178,24 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
+// array of objects
+  // search each object in array
+  // if user object contains value of id
+  // pass entire object to callback
+
 // Code here
+
+function getUserById(arr,id,cb){
+for(i=0;i<arr.length;i++){
+  var vals = Object.values(arr[i]);
+
+  if(vals.includes(id)=== true){
+      console.log(vals);
+    cb(arr[i]);
+  }
+}
+}
+
 
 // Do not edit the code below.
 var users = [
